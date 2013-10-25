@@ -1,0 +1,3 @@
+nico_form_save:
+    pattern:  /form/save
+    defaults: { _controller: NicoFormBundle:Form:save }

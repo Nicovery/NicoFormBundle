@@ -1,0 +1,18 @@
+parameters:
+#    nico_form.example.class: Nico\FormBundle\Example
+
+services:
+#    nico_form.example:
+#        class: %nico_form.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+  nico.form.block.form:
+    class: Nico\FormBundle\Block\BlockService\FormBlockService
+    arguments: [nico.form.block.form,@templating,@service_container]
+    tags:
+      - { name: sonata.block}
+
+  nico_form.admin.mailing:
+    class: Nico\FormBundle\Admin\MailingAdmin
+    arguments: [~, Nico\FormBundle\Entity\Mailing, SonataAdminBundle:CRUD]
+    tags:
+      - {name: sonata.admin, manager_type: orm, group: Contact, label: Mailing}

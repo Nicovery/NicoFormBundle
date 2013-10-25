@@ -1,0 +1,19 @@
+{% extends sonata_block.templates.block_base %}
+{% block block %}
+<div class="row">
+	{% if form is defined %}
+	<form action="{{ path('nico_form_save') }}" method="post" {{ form_enctype(form) }} class="form nico-contact-form">
+		<div class="span12">
+			{{ form(form) }}
+
+			<p>*champs obligatoire</p>
+				{# {{ form_widget(form.newsletter) }}
+				{{ form_label(form.newsletter,'Inscription à la Newsletter') }} #}
+				<input type="submit" >
+			</div>
+		</form>
+	</div>
+	{% else %}
+		{{'pas de formulaire'|trans}}
+	{% endif %}
+	{% endblock %}
